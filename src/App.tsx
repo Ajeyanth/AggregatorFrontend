@@ -86,15 +86,13 @@ function App() {
         ? `Models used: **${usedModels.join(' + ')}**\n\n`
         : '';
 
-      // If you want to incorporate model strengths into the typed output,
-      // you could do something like:
       const strengthLines = data.modelStrengths
         ? `Model Strengths:\n${JSON.stringify(data.modelStrengths, null, 2)}\n\n`
         : '';
 
       const aggregatorContent = `${strengthLines}${modelsLine}**Refined / Final Answer**: ${finalAnswer}`;
 
-      // 5) Add a new system message (empty at first)
+      // 5) Add a new system message
       const systemMessage: Message = { role: 'system', content: '' };
       const updatedMessages = [...newMessages, systemMessage];
       setMessages(updatedMessages);
